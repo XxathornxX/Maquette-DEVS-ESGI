@@ -1,0 +1,1 @@
+{/*Les éléments de la page concernant les actus de l'esgi*/}

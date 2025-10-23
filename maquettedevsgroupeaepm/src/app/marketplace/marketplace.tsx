@@ -1,0 +1,1 @@
+{/*Les éléments de seconde main de l'esgi*/}
