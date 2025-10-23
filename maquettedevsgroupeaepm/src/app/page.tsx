@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Hero from "@/components/ui/Hero";
 
 export default function Home() {
   return (
-    <Button>Click me</Button>    
+    <Hero />   
   );
 }
