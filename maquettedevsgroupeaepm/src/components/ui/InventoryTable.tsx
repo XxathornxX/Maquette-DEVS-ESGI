@@ -10,55 +10,47 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Search } from 'lucide-react';
+import { Input } from './input';
 
-const invoices = [
+const esgiItems = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
+    id: 1,
+    name: "Serveur Rack Dell R740",
+    category: "Serveurs",
+    price: 250,
+    stock: 10,
   },
   {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
+    id: 2,
+    name: "Serveur Rack Dell R6000",
+    category: "Serveurs",
+    price: 100,
+    stock: 10,
   },
   {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
+    id: 3,
+    name: "Serveur Rack Dell R6000",
+    category: "Serveurs",
+    price: 100,
+    stock: 10,
   },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
+
 ];
 
 export default function InventoryTable() {
   return (
-    <Table>
+    <div className="w-full">
+      <div className="flex items-center gap-2 py-4">
+        <div className="relative max-w--sm w-full">
+          <Input
+            placeholder="Filter plants..."
+            className="pl-10"
+          />
+          <Search className="absolute h-4 w-4 left-3 top-1/2 transform -translate-y-1/2" />
+        </div>
+      </div>
+      <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
@@ -69,16 +61,24 @@ export default function InventoryTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+        {esgiItems.map((esgiItems) => (
+          <TableRow key={esgiItems.id}>
+            <TableCell>{esgiItems.name}</TableCell>
+            <TableCell>{esgiItems.category}</TableCell>
+            <TableCell>{esgiItems.price}</TableCell>
+            <TableCell className="font-bol">{esgiItems.stock}</TableCell>
+
+            <TableCell className="text-right">
+              <div className="flex justify-end space-x-4">
+                <h1>Edit Button</h1>
+                <h1>Delete Button</h1>
+              </div>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
+    </div>
   );
 }
 
