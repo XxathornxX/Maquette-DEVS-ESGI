@@ -1,10 +1,12 @@
+import InventoryTable from "@/components/ui/InventoryTable";
 import { stackServerApp } from "../../stack/server";
 import { SignUp } from "@stackframe/stack";
 import React from "react";
 
-async function page() {
+// AJOUTE 'export default' ICI
+export default async function Page() { // J'ai aussi mis une majuscule à Page par convention
   const user = await stackServerApp.getUser();
-  const app = stackServerApp.urls;
+  const app = stackServerApp.urls; // Variable non utilisée, à retirer si inutile
 
   return (
     <>

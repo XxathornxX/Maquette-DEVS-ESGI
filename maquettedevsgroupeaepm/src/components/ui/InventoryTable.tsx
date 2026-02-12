@@ -1,4 +1,6 @@
-import React from 'react'
+"use client";
+
+import React, { useState } from 'react'
 
 import {
   Table,
@@ -12,6 +14,7 @@ import {
 } from "@/components/ui/table";
 import { Search } from 'lucide-react';
 import { Input } from './input';
+import { Combobox } from './combo-box';
 
 const esgiItems = [
   {
@@ -39,6 +42,7 @@ const esgiItems = [
 ];
 
 export default function InventoryTable() {
+  const [selectedCategory, setSelectedCategory] = useState('');
   return (
     <div className="w-full">
       <div className="flex items-center gap-2 py-4">
@@ -49,6 +53,12 @@ export default function InventoryTable() {
           />
           <Search className="absolute h-4 w-4 left-3 top-1/2 transform -translate-y-1/2" />
         </div>
+
+        <Combobox 
+          value={selectedCategory} 
+          onChange={(val: string) => setSelectedCategory(val)} 
+        />
+
       </div>
       <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
